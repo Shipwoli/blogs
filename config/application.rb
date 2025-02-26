@@ -6,6 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Stem
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -29,4 +30,9 @@ module Stem
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
   end
+  if defined?(Sprockets)
+    config.assets.enabled = true
+  end
+  
 end
+
